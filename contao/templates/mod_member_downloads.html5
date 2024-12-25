@@ -1,0 +1,12 @@
+<div class="mod_member_downloads">
+    <h1>Ihre Downloads</h1>
+    <?php if (!empty($this->data)): ?>
+        <ul>
+            <?php foreach ($this->data as $download): ?>
+                <li><?php echo $download['file']; ?> - <?php echo $download['tstamp']; ?></li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <p>Sie haben noch keine Dateien heruntergeladen.</p>
+    <?php endif; ?>
+</div>

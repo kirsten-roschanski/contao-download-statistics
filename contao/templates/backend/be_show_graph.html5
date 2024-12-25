@@ -1,0 +1,58 @@
+<div class="tl_box">
+    <h1>Download Statistics</h1>
+    <canvas id="downloadChart" width="400" height="200"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var ctx = document.getElementById('downloadChart').getContext('2d');
+        var data = <?php echo $this->data; ?>;
+        
+        var labels = data.map(function(item) {
+            return item.file;
+        });
+
+        var downloadData = {
+            labels: labels,
+            datasets: [{
+                label: 'Downloads',
+                data: data.map(function(item) {
+                    return item.download_count;
+                }),
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        var downloadChart = new Chart(ctx, {
+            type: 'bar', // Change to bar chart to better represent counts
+            data: downloadData,
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                var label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += context.raw;
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
