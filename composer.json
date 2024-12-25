@@ -4,8 +4,7 @@
     "version": "dev-main",
     "keywords": [
         "contao",
-        "bundle",
-        ""
+        "bundle"
     ],
     "type": "contao-bundle",
     "license": "GPL-3.0-or-later",
