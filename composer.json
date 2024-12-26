@@ -1,7 +1,6 @@
 {
     "name": "kirsten-roschanski/contao-download-statistics",
     "description": "Provides a content element that stores the download in the database as a guest or registered member. ",
-    "version": "dev-main",
     "keywords": [
         "contao",
         "bundle"
