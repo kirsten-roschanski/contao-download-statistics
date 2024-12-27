@@ -64,8 +64,17 @@ $GLOBALS['TL_DCA']['tl_download_statistic'] = array
         ),
         'operations' => array
         (
-            'delete',
-            'show'
+			'delete' => array
+			(
+				'href'                => 'act=delete',
+				'icon'                => 'delete.svg',
+				'attributes'          => 'onclick="if(!confirm(\'' . ($GLOBALS['TL_LANG']['MSC']['deleteConfirm'] ?? null) . '\'))return false;Backend.getScrollOffset()"'
+			),
+			'show' => array
+			(
+				'href'                => 'act=show',
+				'icon'                => 'show.svg'
+			)
         ),
         'global_operations' => array
         (
